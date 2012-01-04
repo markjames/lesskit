@@ -1,0 +1,58 @@
+// Font sizes
+@-lesskit-font-size-px: 13px;
+@-lesskit-line-height-px: 20px;
+
+// Auto-calculated font sizes/line heights
+@-lesskit-font-size-ems: 1em*(@-lesskit-font-size-px/16px);
+@-lesskit-font-size-pct: 100%*(@-lesskit-font-size-px/16px);
+@-lesskit-line-height-ems: 0.0001em * (round(@-lesskit-line-height-px / @-lesskit-font-size-px * 10000));
+
+@-lesskit-heading-line-height-ems: 1.2em;
+
+// Heading sizes
+@-lesskit-heading-size-1: 2.2em;
+@-lesskit-heading-size-2: 1.75em;
+@-lesskit-heading-size-3: 1.5em;
+@-lesskit-heading-size-4: 1.2em;
+@-lesskit-heading-size-5: 1.1em;
+@-lesskit-heading-size-6: 1em;
+
+body {
+	font-size: @-lesskit-font-size-ems;
+	line-height: @-lesskit-line-height-ems;
+}
+hr {
+	height: 1px;
+	padding: 0;
+	margin: 0;
+	margin-top: (@-lesskit-line-height-px);
+	margin-bottom: (@-lesskit-line-height-px)-2px;
+}
+p {
+	margin-top: 0;
+	margin-bottom: @-lesskit-line-height-ems;
+}
+h1,h2,h3,h4,h5,h6 {
+	line-height: @-lesskit-heading-line-height-ems;
+	margin-top: 0.3em;
+	margin-bottom: 0.2em;
+}
+
+h1 {
+	font-size: @-lesskit-heading-size-1;
+}
+h2 {
+	font-size: @-lesskit-heading-size-2;
+}
+h3 {
+	font-size: @-lesskit-heading-size-3;
+}
+h4 {
+	font-size: @-lesskit-heading-size-4;
+}
+h5 {
+	font-size: @-lesskit-heading-size-5;
+}
+h6 {
+	font-size: @-lesskit-heading-size-6;
+}

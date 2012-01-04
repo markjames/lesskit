@@ -1,0 +1,141 @@
+.clearfix() {
+	zoom: 1;
+	&:before,
+	&:after { display: table; content: ""; zoom: 1; *display: inline; }
+	&:after { clear: both; }
+}
+
+.float(@position: left) {
+	display: inline;
+	float: @position;
+}
+
+.float-left() {
+	display: inline;
+	float: left;
+}
+
+.float-right() {
+	display: inline;
+	float: left;
+}
+
+.reset-float(@display: block) {
+	float: none;
+	display: $display;
+}
+
+.has-layout() {
+	zoom: 1;
+}
+
+.min-height(@value) {
+	height: auto !important;
+	height: @value;
+	min-height: @value;
+}
+
+.min-width(@value) {
+	width: auto !important;
+	width: @value;
+	min-width: @value;
+}
+
+// Replace the text within this element with a background image
+.image-replacement() {
+	display: block;
+	border: 0;
+	text-indent: -999em;
+	overflow: hidden;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	text-align: left;
+	direction: ltr;
+	*line-height: 0;
+	br {
+		display: none;
+	}
+}
+
+// Hide from both screenreaders and browsers
+.hidden() {
+	display: none !important;
+	visibility: hidden;
+}
+
+// Hide text from browsers but make it available for screen readers
+.visually-hidden() {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+// Hide only visually, but have it available for screenreaders
+// and allow the element to be focusable when navigated to via the keyboard
+.visually-hidden-but-focusable() {
+	.visually-hidden();
+	&:active,
+	&:focus {
+		clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto;
+	}
+}
+
+// Hide visually and from screenreaders, but maintain layout
+.invisible() {
+	visibility: hidden;
+}
+
+.inline-block() {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	*display: inline;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Border Radius
+.border-radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+// Reset filters for IE
+.reset-filter() {
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+.horizontal-stripes(@size: 1px, @color: rgba(0, 0, 0, .04)) {
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, @color), color-stop(.5, transparent), to(transparent));
+	background-image: -moz-linear-gradient( @color 50%, transparent 50%, transparent);
+	background-image: -o-linear-gradient( @color 50%, transparent 50%, transparent);
+	background-image: linear-gradient( @color 50%, transparent 50%, transparent);
+	background-size: @size * 2 @size * 2;
+}
+.horizontal-lines(@size: 1px, @color: rgba(0, 0, 0, .1)) {
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.96, transparent), color-stop(.96, @color), to(@color));
+	background-size: @size @size;
+}
+
+/* Horizontal nav */
+.reset-list() {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}

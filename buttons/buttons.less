@@ -1,0 +1,56 @@
+
+.btn(@buttonColor:#FFF, @buttonTextColor:@-lesskit-color-headers, @size:@-lesskit-font-size-px) {
+  // Button Base
+  cursor: pointer;
+  display: inline-block;
+  #gradient > .vertical(@buttonColor, darken(@buttonColor, 10%));
+  padding: 6px 14px 6px;
+vertical-align: bottom;
+
+  color: @buttonTextColor;
+  line-height: normal;
+  border: 1px solid darken(@buttonColor, 15%);
+  border-bottom-color: darken(@buttonColor, 25%);
+  .border-radius(3px);
+  @shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 2px rgba(0,0,0,.05);
+  .box-shadow(@shadow);
+
+  &:hover {
+    color: @buttonTextColor;
+    text-decoration: none;
+	#gradient > .vertical(darken(@buttonColor,5%), darken(@buttonColor, 15%));
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    outline: 1px dotted #666;
+  }
+
+  &.disabled {
+    cursor: default;
+    background-image: none;
+    .reset-filter();
+    .box-shadow(none);
+  }
+  &[disabled] {
+    // disabled pseudo can't be included with .disabled
+    // def because IE8 and below will drop it ;_;
+    cursor: default;
+    background-image: none;
+    .reset-filter();
+    .box-shadow(none);
+  }
+
+}
+
+// Super jank hack for removing border-radius from IE9 so we can keep filter gradients on alerts and buttons
+:root .alert-message,
+:root .btn {
+  border-radius: 0 \0;
+}
+
+// Help Firefox not be a jerk about adding extra padding to buttons
+button::-moz-focus-inner, input[type=submit]::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}

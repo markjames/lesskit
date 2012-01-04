@@ -1,0 +1,81 @@
+@-lesskit-color-text: #585858;
+@-lesskit-color-headers: #222;
+@-lesskit-color-mark: #FFEF95;
+@-lesskit-color-link: #0075C9;
+@-lesskit-color-link-hover: lighten(@-lesskit-color-link, 10%);
+@-lesskit-color-link-active: lighten(@-lesskit-color-link, 10%);
+@-lesskit-color-link-visited: darken(@-lesskit-color-link, 20%);
+
+@-lesskit-color-text-alt: #EEE;
+@-lesskit-color-headers-alt: #FFF;
+@-lesskit-color-mark-alt: #FFEF95;
+@-lesskit-color-link-alt: #A8D7FF;
+@-lesskit-color-link-hover-alt: lighten(@-lesskit-color-link-alt, 10%);
+@-lesskit-color-link-active-alt: lighten(@-lesskit-color-link-alt, 10%);
+@-lesskit-color-link-visited-alt: darken(@-lesskit-color-link-alt, 20%);
+
+body {
+	background: #FFF;
+	color: @-lesskit-color-text;
+}
+.lesskit-header-color(@color) {
+	color: @color;
+	strong {
+		color: darken(@color,10%);
+	}
+}
+h1,h2,h3,h4,h5,h6 {
+	.lesskit-header-color(@-lesskit-color-headers);
+}
+a {
+	color: @-lesskit-color-link;
+	text-decoration: none;
+	line-height: inherit;
+	font-weight: inherit;
+	&:visited {
+		color: @-lesskit-color-link-visited;
+	}
+	&:active {
+		color: @-lesskit-color-link-active;
+	}
+	&:hover {
+		color: @-lesskit-color-link-hover;
+	}
+}
+mark {
+	background-color: @-lesskit-color-mark;
+	font-weight: normal;
+	font-style: normal;
+	padding: 2px 4px;
+	.border-radius(3px);
+}
+table {
+	.table(#ddd)
+}
+video {
+	background: #000;
+}
+
+.flip-colors() {
+	p {
+		color: @-lesskit-color-text-alt;
+	}
+	h1,h2,h3,h4,h5,h6 {
+		.lesskit-header-color(@-lesskit-color-headers-alt);
+	}
+	a {
+		color: @-lesskit-color-link-alt;
+		&:visited {
+			color: @-lesskit-color-link-visited-alt;
+		}
+		&:active {
+			color: @-lesskit-color-link-active-alt;
+		}
+		&:hover {
+			color: @-lesskit-color-link-hover-alt;
+		}
+	}
+	table {
+		.table(#666)
+	}
+}

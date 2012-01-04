@@ -1,0 +1,29 @@
+@-lesskit-grid-columns: 16;
+@-lesskit-grid-column-width: 40px;
+@-lesskit-grid-gutter-width: 20px;
+
+.grid() {
+	width: (@-lesskit-grid-columns * @-lesskit-grid-column-width) + ((@-lesskit-grid-columns - 1) * @-lesskit-grid-gutter-width);
+	.clearfix();
+}
+.column( @spanWidth ) {
+	.columns( @spanWidth );
+}
+.columns( @spanWidth ) {
+	.clearfix();
+	display: inline;
+	float: left;
+	width: (@-lesskit-grid-column-width * @spanWidth) + (@-lesskit-grid-gutter-width * (@spanWidth - 1));
+	margin-right: @-lesskit-grid-gutter-width;
+}
+.last() {
+	margin-right: 0;
+}
+.column-last( @spanWidth ) {
+	.columns( @spanWidth );
+	.last();
+}
+.columns-last( @spanWidth ) {
+	.columns( @spanWidth );
+	.last();
+}
